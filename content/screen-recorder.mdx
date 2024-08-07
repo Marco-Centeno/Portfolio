@@ -1,0 +1,144 @@
+---
+title: "Screen Recorder"
+publishedAt: "2024-06-18"
+summary: "This is a native screen recorder using vanilla web technologies"
+---
+
+This is a native screen recorder using vanilla web technologies
+
+HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Grabador de Pantalla</h1>
+    <button id="recorder">Iniciar grabacion</button>
+    <div id="status" class="status">⚫Listo para iniciar grabacion</div>
+    <video id="preview" autoplay muted></video>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
+```
+
+CSS:
+
+```css
+:root {
+  background-color: black;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1 {
+  width: 600px;
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 600px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #a647ff;
+}
+
+button:active {
+  background: #8400ff;
+}
+
+.status {
+  color: #ffff;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+video {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  max-height: 60vh;
+  margin: 1rem auto;
+  border: 2px solid #222;
+  border-radius: 12px;
+}
+```
+
+Hi there!
+
+```js
+const button = document.getElementById("recorder");
+const status = document.getElementById("status");
+const preview = document.getElementById("preview");
+
+let mediaStream = null;
+
+button.addEventListener("click", async () => {
+  try {
+    if (mediaStream) {
+      //detiene la vista en tiempo real
+      mediaStream.getTracks().forEach((track) => track.stop());
+      preview.srcObject = null;
+      mediaStream = null;
+      status.textContent = "⚫Grabacion detenida";
+      button.textContent = "Iniciar grabacion";
+      return;
+    }
+
+    //Pide la pantalla/ventana a grabar
+    mediaStream = await navigator.mediaDevices.getDisplayMedia({
+      video: { frameRate: { ideal: 30 } },
+    });
+
+    //establecer la vista en tiempo real
+    preview.srcObject = mediaStream;
+
+    //actualizar estado del boton
+    status.textContent = "🔴Grabando";
+    button.textContent = "Detener grabacion";
+
+    //inicializamos el media recorder
+    const mediaRecorder = new MediaRecorder(mediaStream, {
+      mimeType: "video/webm; codecs=vp8,opus",
+    });
+
+    mediaRecorder.start();
+
+    mediaRecorder.addEventListener("dataavailable", (e) => {
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(e.data);
+      link.download = "Grabacion de pantalla";
+      link.click();
+    });
+
+    mediaRecorder.addEventListener("stop", () => {
+      status.textContent = "⚫Grabacion detenida";
+      button.textContent = "Iniciar grabacion";
+    });
+
+    //finalizar la grabacion cunado la media esta finalizada
+    mediaStream.getVideoTracks()[0].addEventListener("ended", () => {
+      mediaRecorder.stop();
+    });
+  } catch (error) {
+    console.log(error);
+    status.textContent = "⚫Algo salio en el proseso";
+  }
+});
+```

@@ -25,6 +25,7 @@ export const DATA = {
     "C++",
     "Electron",
     "Git",
+    "Java",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },

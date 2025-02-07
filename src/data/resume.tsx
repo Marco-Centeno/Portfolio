@@ -79,7 +79,7 @@ export const DATA = {
     {
       company: "Molex Consulant",
       href: "https://www.molex.com/en-us/home",
-      badges: ["Software Developer", "IT"],
+      badges: [],
       location: "Av. Centro Logístico, 45777, Centro Logístico Jalisco, Jal.",
       title: "C# & .NET Software Developer",
       logoUrl: "https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-1/241056567_2952355578425866_7566865815427510582_n.png?_nc_cat=107&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=aMemo0FLcQEQ7kNvgGi8Nk7&_nc_oc=Adhpj74s0SkInpRVEI8zbuI3W7mL9SmcWiPtbgA-Fnzi66KsiPVvhGDIxadlqdtNQSZaSDMOb0HBIq3xzt1-qItr&_nc_zt=24&_nc_ht=scontent-qro1-2.xx&_nc_gid=ARCHz-b2fNjXoF8d8-614G4&oh=00_AYAWdus_7u1DgMcI-JxNJZHO3r0X_TfIx0TcAvTImWH-4w&oe=67AB6830",

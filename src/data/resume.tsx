@@ -5,15 +5,18 @@ import { title } from "process";
 export const DATA = {
   name: "Marco Antonio Centeno",
   initials: "MAC",
-  url: "https://dillion.io",
+  url: "https://marcocenteno.vercel.app/",
   location: "Jalisco, Mexico",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
+  locationLink: "https://www.google.com/maps/place/jalisco",
   description:
     "Software Developer. I love building things and helping people.",
   summary:
     "At the end of 2020 I start geting interested in the development of aplications, now I'm a [Software Developer](/#education) who wants to learn new technologies doing my best as well as I can. I start with c, c++, and c# in the baccalaureate but [I get envolved to the web technologies like JavaScript, Typescrit and Their frameworks](/#skills). In the other hand, I really like play videogames, do exercise and play instruments.",
   avatarUrl: "/me.jpeg",
   skills: [
+    "C#",
+    "SQL",
+    ".NET Framework",
     "React",
     "Next.js",
     "Typescript",
@@ -74,6 +77,21 @@ export const DATA = {
 
   work: [
     {
+      company: "Molex Consulant",
+      href: "https://www.molex.com/en-us/home",
+      badges: ["Software Developer", "IT"],
+      location: "Av. Centro Logístico, 45777, Centro Logístico Jalisco, Jal.",
+      title: "C# & .NET Software Developer",
+      logoUrl: "https://scontent-qro1-2.xx.fbcdn.net/v/t39.30808-1/241056567_2952355578425866_7566865815427510582_n.png?_nc_cat=107&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=aMemo0FLcQEQ7kNvgGi8Nk7&_nc_oc=Adhpj74s0SkInpRVEI8zbuI3W7mL9SmcWiPtbgA-Fnzi66KsiPVvhGDIxadlqdtNQSZaSDMOb0HBIq3xzt1-qItr&_nc_zt=24&_nc_ht=scontent-qro1-2.xx&_nc_gid=ARCHz-b2fNjXoF8d8-614G4&oh=00_AYAWdus_7u1DgMcI-JxNJZHO3r0X_TfIx0TcAvTImWH-4w&oe=67AB6830",
+      start: "October 2024",
+      end: "--/--/----",
+      description:
+        `Developed and implemented software solutions to optimize manufacturing processes, improving efficiency, compliance, and cost savings. 
+        Designed and maintained systems for process tracking, quality control, change management, and employee engagement. Automated workflows to reduce manual errors, 
+        enhance traceability, and streamline decision-making. Provided technical support and led system migrations to ensure seamless operations across multiple locations. 
+        Focused on innovation and continuous improvement to drive operational excellence and business growth.`,
+    },
+    {
       company: "FabLab Baccalaureate",
       href: "http://prepa17.sems.udg.mx/",
       badges: [],
@@ -89,6 +107,14 @@ export const DATA = {
     },
   ],
   education: [
+    {
+      school: "Lamar University",
+      href: "https://lamar.mx/",
+      degree: "Engineering in Software & Application Development",
+      logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAi39QOOrbih-1kNiePgVl5hXtW1v4SVXkzB7EkxXVVLM38UYHtJKIwMgui-xV3DqMc_M&usqp=CAU",
+      start: "2024",
+      end: "2027",
+    },
     {
       school: "University of Guadalajara (UDG)",
       href: "https://www.udg.mx/es",
